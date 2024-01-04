@@ -1,0 +1,1157 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "ConsentManagement-API-V1",
+    "description" : "Swagger Documentation for Consent Management - Consent Management API Version 1",
+    "version" : "v1.0.0",
+    "termsOfService" : "https://tonikbank.com/terms-condition",
+    "license" : {
+      "name" : "Terms and Conditions",
+      "url" : "https://tonikbank.com/terms-condition"
+    },
+    "contact" : {
+      "name" : "Customer Care",
+      "url" : "https://tonikbank.com/",
+      "email" : "customercare@tonikbank.com"
+    }
+  },
+  "servers" : [ {
+    "description" : "Sandbox Environment",
+    "url" : "https://sandboxapi.tonikbank.com/v1/consent-mgmt",
+    "x-name" : "Sandbox Environment"
+  }, {
+    "description" : "Dev Environment",
+    "url" : "https://devapi.tonikbank.com/v1/consent-mgmt",
+    "x-name" : "Dev Environment"
+  }, {
+    "description" : "Test Environment",
+    "url" : "https://testapi.tonikbank.com/v1/consent-mgmt",
+    "x-name" : "Test Environment"
+  }, {
+    "description" : "UAT Environment",
+    "url" : "https://uatapi.tonikbank.com/v1/consent-mgmt",
+    "x-name" : "UAT Environment"
+  } ],
+  "tags" : [ {
+    "name" : "Consents",
+    "description" : "Tags to group all API resources of Consents schemas"
+  } ],
+  "paths" : {
+    "/consents/categories" : {
+      "summary" : "Consents categories",
+      "x-description" : "This API returns consents categories",
+      "get" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "getConsentCategories",
+        "summary" : "Get consent categories",
+        "description" : "This API resources is used to retrieve all categories",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ConsentCategoriesResp"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        },
+        "x-gw-metadata" : [ {
+          "x-gw-cache-resource" : [ "" ]
+        }, {
+          "x-gw-cache-timeout-unit" : [ "seconds" ]
+        }, {
+          "x-gw-cache-timeout" : [ "" ]
+        }, {
+          "x-gw-cache-key" : [ ]
+        } ]
+      }
+    },
+    "/consents/category/details" : {
+      "summary" : "Consents category details",
+      "x-description" : "This API returns consents category details",
+      "get" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "getConsentCategoryDetails",
+        "summary" : "Get consents category details",
+        "description" : "This API resources is used to retrieve consents category details",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        }, {
+          "name" : "category",
+          "in" : "query",
+          "description" : "category",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "Account-Consent"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ConsentCategoryDetailsResp"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        },
+        "x-gw-metadata" : [ {
+          "x-gw-cache-resource" : [ "" ]
+        }, {
+          "x-gw-cache-timeout-unit" : [ "seconds" ]
+        }, {
+          "x-gw-cache-timeout" : [ "" ]
+        }, {
+          "x-gw-cache-key" : [ ]
+        } ]
+      }
+    },
+    "/consents" : {
+      "post" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "postConsent",
+        "summary" : "Create Consent",
+        "description" : "This API resource is used to create Consent.",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        } ],
+        "requestBody" : {
+          "description" : "Create consent",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PostConsentReq"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Request accepted"
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "filterConsents",
+        "summary" : "Filter consents",
+        "description" : "This API resources is used to filter consents",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        }, {
+          "name" : "userID",
+          "in" : "query",
+          "description" : "User ID",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "rob.holding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FiletrConsentsResp"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        },
+        "x-gw-metadata" : [ {
+          "x-gw-cache-resource" : [ "" ]
+        }, {
+          "x-gw-cache-timeout-unit" : [ "seconds" ]
+        }, {
+          "x-gw-cache-timeout" : [ "" ]
+        }, {
+          "x-gw-cache-key" : [ ]
+        } ]
+      }
+    },
+    "/consents/{consent-id}/scopes" : {
+      "put" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "updateConsentScope",
+        "summary" : "Update consent scope",
+        "description" : "This API resource is used to update consent scope",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        }, {
+          "name" : "consent-id",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "example" : "",
+          "schema" : {
+            "description" : "Consent Id",
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Update consent scope",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ConsentScopeReq"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Request Accepted"
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consents/{consent-id}" : {
+      "get" : {
+        "tags" : [ "Consents" ],
+        "operationId" : "getConsent",
+        "summary" : "Get consent",
+        "description" : "This API resources is used to retrieve consent",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/xTenant"
+        }, {
+          "$ref" : "#/components/parameters/xConsentApikey"
+        }, {
+          "name" : "consent-id",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "example" : "",
+          "schema" : {
+            "description" : "Consent Id",
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ConsentResp"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "501" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "502" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          },
+          "504" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ConsentCategoryDetailsResp" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "example" : "Account-Consent",
+            "description" : "Consent name"
+          },
+          "displayName" : {
+            "type" : "string",
+            "example" : "Account Consent",
+            "description" : "Consent display name"
+          },
+          "summary" : {
+            "type" : "string",
+            "example" : "Category to capture account related users information and consents.",
+            "description" : "Consent summary"
+          },
+          "description" : {
+            "type" : "string",
+            "example" : "Category to capture account related users information and consents.",
+            "description" : "Consent description"
+          },
+          "expiry" : {
+            "type" : "number",
+            "example" : 60,
+            "description" : "Expiry days"
+          },
+          "scopes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "name" : {
+                  "type" : "string",
+                  "example" : "Personal Information",
+                  "description" : "Consent scope"
+                },
+                "summary" : {
+                  "type" : "string",
+                  "example" : "Users Personal Information",
+                  "description" : "Consent scope summary"
+                }
+              }
+            }
+          },
+          "cts" : {
+            "type" : "number",
+            "example" : 1639707178009,
+            "description" : "cts"
+          },
+          "mts" : {
+            "type" : "number",
+            "example" : 1639707239293,
+            "description" : "mts"
+          }
+        }
+      },
+      "PostConsentReq" : {
+        "type" : "object",
+        "required" : [ "consent", "scopes" ],
+        "properties" : {
+          "consent" : {
+            "type" : "object",
+            "required" : [ "userID", "emailId", "appId", "partnerID", "status", "category" ],
+            "properties" : {
+              "userID" : {
+                "type" : "string",
+                "example" : "samantha.jain",
+                "description" : "user ID"
+              },
+              "emailId" : {
+                "type" : "string",
+                "example" : "samantha.jain@traders.com",
+                "description" : "User email Id"
+              },
+              "appId" : {
+                "type" : "string",
+                "example" : "Windows",
+                "description" : "App Id"
+              },
+              "partnerID" : {
+                "type" : "string",
+                "example" : "Loan",
+                "description" : "Partner Id"
+              },
+              "status" : {
+                "type" : "string",
+                "example" : "Active",
+                "description" : "Consent status"
+              },
+              "category" : {
+                "type" : "string",
+                "example" : "Account-Consent",
+                "description" : "Consent category"
+              }
+            }
+          },
+          "scopes" : {
+            "type" : "array",
+            "description" : "Consent scopes",
+            "items" : {
+              "type" : "string",
+              "example" : [ "Personal Information", "Account Number", "Account Balance" ]
+            }
+          }
+        }
+      },
+      "FiletrConsentsResp" : {
+        "type" : "object",
+        "required" : [ "consentList", "pagination" ],
+        "properties" : {
+          "consentList" : {
+            "$ref" : "#/components/schemas/ConsentResp"
+          },
+          "pagination" : {
+            "type" : "object",
+            "properties" : {
+              "total" : {
+                "type" : "number",
+                "example" : 27
+              },
+              "offset" : {
+                "type" : "number",
+                "example" : 1
+              },
+              "pageSize" : {
+                "type" : "number",
+                "example" : 10
+              }
+            }
+          }
+        }
+      },
+      "ConsentScopeReq" : {
+        "type" : "array",
+        "items" : {
+          "type" : "string",
+          "example" : [ "Personal Information", "Account Number" ]
+        }
+      },
+      "ConsentResp" : {
+        "type" : "object",
+        "required" : [ "id", "consent", "scopes", "cts", "mts", "expiry" ],
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "61bbf4856594266bbe690284"
+          },
+          "consent" : {
+            "type" : "object",
+            "required" : [ "userID", "emailId", "appId", "partnerID", "status", "category" ],
+            "properties" : {
+              "userID" : {
+                "type" : "string",
+                "example" : "rob.holding"
+              },
+              "emailId" : {
+                "type" : "string",
+                "example" : "rob.holding@traders.com"
+              },
+              "appId" : {
+                "type" : "string",
+                "example" : "Andriod"
+              },
+              "partnerID" : {
+                "type" : "string",
+                "example" : "Trading"
+              },
+              "status" : {
+                "type" : "string",
+                "example" : "Revoked"
+              },
+              "category" : {
+                "type" : "string",
+                "example" : "Account-Consent"
+              }
+            }
+          },
+          "scopes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "example" : "Personal Information"
+            }
+          },
+          "cts" : {
+            "type" : "number",
+            "example" : 1639707780808
+          },
+          "mts" : {
+            "type" : "number",
+            "example" : 1639708699972
+          },
+          "expiry" : {
+            "type" : "number",
+            "example" : 1639711380808
+          }
+        }
+      },
+      "ErrorSchema" : {
+        "description" : "",
+        "type" : "object",
+        "required" : [ "errors" ],
+        "properties" : {
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "code" : {
+                  "type" : "string",
+                  "example" : "Security-1001",
+                  "description" : "Error code"
+                },
+                "userMessage" : {
+                  "type" : "string",
+                  "example" : "Error message",
+                  "description" : "Error message"
+                },
+                "info" : {
+                  "type" : "string",
+                  "example" : "https://developers.myapi.com/errors/#Security-1001"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ConsentStatus" : {
+        "type" : "string",
+        "example" : "Revoked",
+        "description" : "Consent Status"
+      },
+      "ConsentCategoriesResp" : {
+        "type" : "array",
+        "items" : {
+          "type" : "string"
+        },
+        "example" : [ "Account-Consent", "Payment-Consent", "Transaction-Consent" ]
+      }
+    },
+    "securitySchemes" : {
+      "oAuth2" : {
+        "type" : "oauth2",
+        "flows" : {
+          "clientCredentials" : {
+            "tokenUrl" : "https://uatapi.tonikbank.com/v1/security/oauth-token",
+            "scopes" : {
+              "tonik:read:write" : "Tonik Global Scopes"
+            }
+          }
+        }
+      }
+    },
+    "parameters" : {
+      "xTenant" : {
+        "name" : "x-tenant",
+        "in" : "header",
+        "description" : "x-tenant header",
+        "required" : true,
+        "schema" : {
+          "type" : "string",
+          "example" : "b543967b-4509-4168-b7c5-4cb713edeb79"
+        }
+      },
+      "xConsentApikey" : {
+        "name" : "x-consent-apikey",
+        "in" : "header",
+        "description" : "consents apikey.",
+        "required" : true,
+        "schema" : {
+          "type" : "string",
+          "example" : "BdJrhU3gmqIOQRUYLtnVHE/WGtVxfkAnc5Dz0i3lB8qe6y8z+gWTOENjFUS0x/gZQHd1fxbbtZ0LTYGQGEDBVw=="
+        }
+      }
+    }
+  },
+  "x-mock" : true,
+  "x-metadata" : {
+    "metadata" : {
+      "swaggerName" : "e6d767a0489442a291b7245byyfugj",
+      "revision" : 4,
+      "documentation" : [ ],
+      "category" : [ {
+        "name" : "Consents",
+        "paths" : [ "/consents/categories", "/consents/category/details", "/consents", "/consents/{consent-id}/scopes", "/consents/{consent-id}" ]
+      } ]
+    }
+  },
+  "security" : [ ]
+}
