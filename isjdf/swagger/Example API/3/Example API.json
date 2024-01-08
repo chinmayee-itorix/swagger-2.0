@@ -1,0 +1,52 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Example API",
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/evaluate" : {
+      "get" : {
+        "summary" : "Evaluate a mathematical expression",
+        "description" : "This endpoint allows you to evaluate a mathematical expression.\nProvide the expression as a query parameter named `expression`.\nExample expressions: \"2 + 2\", \"sin(45)\", \"3 * (5 - 2)\".\n",
+        "parameters" : [ {
+          "name" : "expression",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "description" : "The mathematical expression to evaluate"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "result" : "Result is {{eval(expression)}}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers" : [ ],
+  "tags" : [ ],
+  "security" : [ ],
+  "components" : { },
+  "x-mock" : true,
+  "x-metadata" : {
+    "metadata" : {
+      "swaggerName" : "8aa1d51502994ba08f47dd21cf83cbdd",
+      "revision" : 1,
+      "documentation" : [ ],
+      "category" : [ {
+        "name" : "Unsorted",
+        "paths" : [ "/evaluate" ]
+      } ]
+    }
+  }
+}
